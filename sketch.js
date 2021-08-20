@@ -54,7 +54,7 @@ function preload(){
   //bgImg=loadImage("ninja background.png")
   knifeSound=loadSound("bioimages/knifeSwooshSound.mp3");
   taskS=loadSound("bioimages/Task complete sound effect.mp3");
-  bgS=loadSound("bioimages/bg sound for bio game (mp3cut.net) (1).mp3");
+  //bgS=loadSound("bioimages/bg sound for bio game (mp3cut.net) (1).mp3");
   LaRo=loadImage("bioimages/LaRo.jpg");
   goal=loadImage("bioimages/goal.png");
   task=loadImage("bioimages/task.png");
@@ -347,7 +347,7 @@ function setup() {
 
 function draw(){
   background(GameBg);
- bgS.play(); 
+ //bgS.play(); 
    /*play = createButton('play');
    play.position(displayWidth/2,displayHeight/2+100);
    play.style.width = '200px'; // setting the width to 200px
@@ -549,7 +549,7 @@ if(gameState===7){
 //image(EvGj,550,200,200,250);
 fill('Black')
 textSize(50)      
-stroke('White')
+stroke('Red')
 strokeWeight(4)
 textStyle(BOLD)
 text('Good Job',550,200)
