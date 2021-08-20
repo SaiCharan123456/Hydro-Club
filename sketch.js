@@ -25,7 +25,7 @@ function preload(){
   cht2=loadAnimation("bioimages/ch2.1.png","bioimages/ch23.png");
   cht1=loadAnimation("bioimages/ch1.1.png","bioimages/ch10.png");
   EvBg=loadImage('bioimages/EvBg.png');
-  //EvGj=loadImage('bioimages/EvGj.png');
+  EvGj=loadImage('bioimages/EvGj.png');
   Door=loadImage('bioimages/door.jpg');
   CoBg=loadImage('bioimages/CoBg.jpg');
   PrBg=loadImage('bioimages/PrBg.png');
@@ -347,7 +347,7 @@ function setup() {
 
 function draw(){
   background(GameBg);
- // bgS.play(); 
+ bgS.play(); 
    /*play = createButton('play');
    play.position(displayWidth/2,displayHeight/2+100);
    play.style.width = '200px'; // setting the width to 200px
@@ -546,7 +546,7 @@ if(gameState===7){
 // GIFLENS-https://media2.giphy.com/media/SGabYT8MhuJMc/200.gif
 //GIFLENS.viewGif(GIFLENS-'https://media2.giphy.com/media/SGabYT8MhuJMc/200.gif')
 //image(EvAn,550,200,200,250);
-//image(EvGj,550,200,200,250);
+image(EvGj,550,200,200,250);
 EvDone1.visible=true;
 if(mousePressedOver(EvDone1)){
   EvDone1.visible=false;
