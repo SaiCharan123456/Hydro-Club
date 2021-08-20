@@ -347,7 +347,7 @@ function setup() {
 
 function draw(){
   background(GameBg);
-  bgS.play(); 
+ // bgS.play(); 
    /*play = createButton('play');
    play.position(displayWidth/2,displayHeight/2+100);
    play.style.width = '200px'; // setting the width to 200px
@@ -823,7 +823,7 @@ if(gameState===13){
   text('Precipitation',600,50)
   Prtask.visible=false;
   chter1.visible=false;
-        fill('light Blue');
+        fill("Blue");
         stroke("red");
         strokeWeight(4);
         rectMode(CENTER);
