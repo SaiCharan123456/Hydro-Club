@@ -11,18 +11,19 @@ var gameState = 0;
 var score = 0;
 var score1 = 0;
 var count=0; 
+var count1=0; 
 var playerScore=0;
 var x = 3;
 var computerScore =0;
 function preload(){
   play=loadImage('bioimages/play.png');
-  saveImg=loadImage('bioimages/save.PNG')
-  CH1=loadImage('bioimages/ch1.png');
-  CH2=loadImage('bioimages/ch2.png');
-  startImg=loadImage('bioimages/startimg.PNG');
+ // saveImg=loadImage('bioimages/save.PNG')
+//  CH1=loadImage('bioimages/ch1.png');
+ ///CH2=loadImage('bioimages/ch2.png');
+  //startImg=loadImage('bioimages/startimg.PNG');
   ch1=loadImage('bioimages/ch1.2.PNG');
-  ch2=loadImage('bioimages/ch2.2.PNG');
-  cht2=loadAnimation("bioimages/ch2.1.png","bioimages/ch23.png");
+  //ch2=loadImage('bioimages/ch2.2.PNG');
+  //c//ht2=loadAnimation("bioimages/ch2.1.png","bioimages/ch23.png");
   cht1=loadAnimation("bioimages/ch1.1.png","bioimages/ch10.png");
   EvBg=loadImage('bioimages/EvBg.png');
   //EvGj=loadImage('bioimages/EvGj.png');
@@ -40,7 +41,7 @@ function preload(){
   Gun=loadImage("bioimages/Gun.png");
   laserImg=loadImage("bioimages/Laser.png");
   restartImg=loadImage("bioimages/restart.png");
-  Over=loadImage("bioimages/gameover.png");
+  //Over=loadImage("bioimages/gameover.png");
   knifeImg=loadImage("bioimages/sword.png");
  fruit1=loadImage("bioimages/rain.png");
   fruit2=loadImage("bioimages/sleet.png");
@@ -52,9 +53,10 @@ function preload(){
   life1Img=loadImage("bioimages/life -1.PNG");
   life2Img=loadImage("bioimages/life -2.PNG");
   //bgImg=loadImage("ninja background.png")
-  knifeSound=loadSound("bioimages/knifeSwooshSound.mp3");
+  gun=loadSound("bioimages/[ONTIVA.COM] (Cutter) m24 sound effect [high quality]-320k.mp3")
+ knifeSound=loadSound("bioimages/[ONTIVA.COM] (Cutter) Swoosh sound effect-320k.mp3");
   taskS=loadSound("bioimages/Task complete sound effect.mp3");
-  //bgS=loadSound("bioimages/bg sound for bio game (mp3cut.net) (1).mp3");
+  bgS=loadSound("bioimages/bg sound for bio game(1) (mp3cut.net).mp3");
   LaRo=loadImage("bioimages/LaRo.jpg");
   goal=loadImage("bioimages/goal.png");
   task=loadImage("bioimages/task.png");
@@ -63,6 +65,7 @@ function preload(){
   gameTile1=loadImage("bioimages/gameTitle1.png");
   instruction=loadImage("bioimages/instructions.png");
   last=loadImage("bioimages/last.png");
+  worg=loadSound("bioimages/incorrect sound effect.mp3");
 }
 
 function setup() {
@@ -72,7 +75,8 @@ function setup() {
  bg=createSprite(630,50,50,50);
  bg.addImage(gameTile1);
  bg.visible = false;
- playImg=createSprite(displayWidth/2,displayHeight/2+100,50,50);
+   bgS.play(); 
+ playImg=createSprite(660,540,50,50);
  playImg.addImage(play);
  //playImg.scale=0.3
   form = new Form();
@@ -82,7 +86,7 @@ function setup() {
   iconCh1=createSprite(50,50,50,50);
   iconCh1.addImage(ch1)
   iconCh1.visible=false;
-  iconCh2=createSprite(50,50,50,50);
+ /* iconCh2=createSprite(50,50,50,50);
   iconCh2.addImage(ch2)
   iconCh2.visible=false;
   ////character1=createSprite(440,400,50,50);
@@ -90,17 +94,17 @@ function setup() {
   //character1.visible=false;
   character2=createSprite(850,400,50,50);
   character2.addImage(CH2);
-  character2.visible=false;
+  character2.visible=false;*/
   chter1=createSprite(50,300,50,50);
   chter1.addAnimation("chararuning",cht1);
   chter1.visible=false;
   chter1.scale=0.5
-  chter2=createSprite(50,300,50,50);
+ /* chter2=createSprite(50,300,50,50);
   chter2.addAnimation('ch1',cht2);
   chter2.visible=false;
    start=createSprite(590,350,50,50); 
     start.addImage(startImg);
-    start.visible=false;
+    start.visible=false;*/
     start1=createSprite(1200,560,50,50); 
     start1.visible=false
     start1.addImage(start1Img);
@@ -341,13 +345,14 @@ function setup() {
   Evline2 = new Line(500,300,700,10);
   Evline3 = new Line(325,87.5,10,160);
   Evline4 = new Line(325,262.5,10,160);
+
 }
  
 
 
 function draw(){
   background(GameBg);
- //bgS.play(); 
+  
    /*play = createButton('play');
    play.position(displayWidth/2,displayHeight/2+100);
    play.style.width = '200px'; // setting the width to 200px
@@ -373,7 +378,7 @@ function draw(){
     ///bg.visible = false;
    // bg.x= 700//
    // bg.y= 100
-
+taskS.play();
     gameState = 3;
     //form.start();
     /*this.input = createInput('Entre username');
@@ -442,7 +447,7 @@ start1.visible=false;
 bg.visible=true;;
 chter1.visible=true; 
 iconCh1.visible=false; 
-iconCh2.visible=false; 
+//iconCh2.visible=false; 
 startLine.display();
 startLine1.display();
 startLine2.display();
@@ -592,6 +597,15 @@ if(gameState===9){
 Cotask.visible=true;
 if(chter1.isTouching(Cotask) || mousePressedOver(Cotask)){
   gameState=10; 
+  life.visible=true;
+      life1.visible=true;
+      life2.visible=true;
+      life.x=805
+      life1.x=830
+      life2.x=855
+    life.y=230;
+    life1.y=230;
+    life2.y=230;
   Cotask.visible=false;   
 }
 }
@@ -640,6 +654,7 @@ if(gameState===10){
        text('do not touch the clouds and if the score',590,160);
        text(' goes into negtive points refresh the page',590,180)
        text('Win 15 point and click space shoot.' ,580,200);
+       text('there is a shoutcut in the game try to find out' ,580,220);
       /* bird.display();   
        slingshot.display();    
       cloud.display();
@@ -670,12 +685,13 @@ if(gameState===10){
       cloud25.display();*/
       
       //Bow.visible=false;
-      Restart=createSprite(645,400);
+      /*Restart=createSprite(645,400);
       Restart.addImage(restartImg);
       Restart.visible=false;
-      GameOver=createSprite(645,230);
+      /*GameOver=createSprite(645,230);
       GameOver.addImage(Over);
-      GameOver.visible=false;
+      GameOver.visible=false;*/
+      
 
       cloud12();
        Bow.x=mouseX; 
@@ -702,31 +718,43 @@ if(gameState===10){
         if(laserGP.isTouching(cloud1)){
           cloud1.destroyEach();          
           laser.remove();
-          score =score+2;
+          score =score+3;
+          gun.play();
         }
         if(score>=15){
           gameState=11;
           //Bow.remove();
+          life.visible=false
+          life1.visible=false
+          life2.visible=false
           Bow.visible=false;
           laserGP.destroyEach();
           cloud1.destroyEach();
           taskS.play(); 
         }
         if(Bow.isTouching(cloud1)){
-          score = score - 2;
-          count=count+1;
+          cloud1.destroyEach();
+          worg.play()
+          score = score - 1;
+          count1=count1+1;
         }
-        if(count===1){
-          life2.remove();
+        if(count1===1){
+          life2.visible=false
         }
-         if(count===2){
-          life1.remove();
+         if(count1===2){
+          life1.visible=false
+          life2.visible=false
         }
-         if(count===3){
-          life.remove();
+         if(count1===3){
+          life.visible=false
+          life1.visible=false
+          life2.visible=false
         }
-        if(count===4){
-         score=score-2;
+        if(count1===4){
+         score = score - 1;
+         life.visible=false
+          life1.visible=false
+          life2.visible=false
         }
 
         
@@ -866,6 +894,9 @@ if(gameState===13){
        life2.visible=true;
        life.visible=true;
        life1.visible=true;
+       life.x=470
+      life1.x=495
+      life2.x=520
       Knife.y=mouseY; 
       Knife.x=mouseX;
      
@@ -877,30 +908,40 @@ if(gameState===13){
       if(fruitGroup.isTouching(Knife)){
         fruitGroup.destroyEach();
         score1=score1+1
-       //knifeSound.play(); 
+       knifeSound.play(); 
       }
          fruit();
        if(enemyGroup.isTouching(Knife)){
          enemyGroup.destroyEach();
          score1=score1-2;
          count=count+1 
+         worg.play();
          }
        enemy();
        if(count===1){
-         life2.remove();
+         life2.visible=false
        }
         if(count===2){
-         life1.remove();
+          life2.visible=false
+         life1.visible=false
        }
         if(count===3){
-         life.remove();
+         life.visible=false 
+         life2.visible=false
+         life1.visible=false
        }
        if(count===4){
         score1=score1-2;
+        life.visible=false 
+         life2.visible=false
+         life1.visible=false
        }
        if(score1>=15){
          gameState=14
          taskS.play(); 
+         life.visible=false 
+         life2.visible=false
+         life1.visible=false
         //Knife.addImage(youwin);
         //Knife.x=width/2;
         //Knife.y=height/2; 
@@ -1091,7 +1132,8 @@ if(gameState===16){
         pad27.visible=false;
         pad28.visible=false;
         pad29.visible=false;
-
+        chter1.x=660;
+        chter1.y=300;
            }
 }
 if(gameState===17){
@@ -1285,6 +1327,7 @@ if(gameState===20){
             playerScore=0;
             score1=0;
             score=0;
+            count1=0;
             count=0;
             startLine.display();
             startLine1.display();
@@ -1295,16 +1338,18 @@ if(gameState===20){
             Evline3.display();
             Evline4.display();
             Evtask.display(); 
-            
+            bgS.play();
           }
           
           if(mousePressedOver(home)){
+            bgS.play();
             home.visible=false;
             Restart1.visible=false;
             playerScore=0;
             score1=0;
             score=0;
             count=0
+            count1=0;
             gameState=3;
             startLine.display();
             startLine1.display();
@@ -1379,7 +1424,7 @@ if(keyDown("up")){
 if(keyDown("down")){  
     chter1.y=chter1.y+10;  
 }
-if(keyDown("left")){
+/*if(keyDown("left")){
   chter2.x=chter2.x-10;
   
 }
@@ -1391,10 +1436,10 @@ if(keyDown("up")){
 }
 if(keyDown("down")){  
     chter2.y=chter2.y+10;  
-}
+}*/
 /*createEdgeSprites(canvas);
 chter1.bounceOff();*/
- /* textSize(20);
+  /*textSize(20);
   fill("white");
   stroke('black')
   strokeWeight(4)
