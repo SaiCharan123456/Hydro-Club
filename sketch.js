@@ -32,7 +32,7 @@ function preload(){
   PrBg=loadImage('bioimages/PrBg.png');
   RoBg=loadImage("bioimages/RoBg.png");
   PeBg=loadImage('bioimages/PeBg.png')
-  GameBg=loadImage('bioimages/GameBg.png')
+  GameBg=loadImage('GameBg.png')
   start1Img=loadImage('bioimages/start.PNG');
   //EvAn=loadImage('bioimages/EvAn.mp4');
   gameTile=loadImage('bioimages/GameTitle.png');
